@@ -1,2 +1,2 @@
-# Cifra.Zone_TelegramBot
-A telegram bot made for hackathon Cifra.Zone
+# FEFUbot
+A telegram bot for sirius.summer
