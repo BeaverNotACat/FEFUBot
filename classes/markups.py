@@ -12,6 +12,9 @@ class Markups:
         return self.__make_buttons([(name, word+str(name)) for name in need_list])
 
 
+    def hello_button_with_mailing(self):
+        return self.__make_buttons([("узнать состояние кампуса", "list_buildings"), ("подписаться", "subscription")])
+
     def hello_button(self):
         return self.__make_buttons([("узнать состояние кампуса", "list_buildings")])
 
