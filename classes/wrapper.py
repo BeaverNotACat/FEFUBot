@@ -31,8 +31,3 @@ class FefuMetaDB:
 
   def get_objects_list(self):
     return self.request_objects_list().keys()
-
-
-
-
-# Подают имя объекта -> отправляем инфу с датчиков
