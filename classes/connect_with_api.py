@@ -8,7 +8,7 @@ class APIInterface:
         names = list(connect_with_fefu.get_objects_list())
         res = list()
         for name in names:
-            if name[:6] == "Корпус":
+            if (name[:6] == "Корпус") and ("A" <= name[-1] <= "Z"):
                 res.append(name)
         return sorted(res, key=lambda x: x[-1])
 

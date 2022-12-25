@@ -3,10 +3,7 @@ from fefu_bot import bot, lets_make_buttons, lets_make_texts, api, mailing
 
 @bot.message_handler(commands=["start"])
 def meeting_message(message):
-    if mailing.find_user(message.from_user.id):
-        bot.send_message(message.from_user.id, lets_make_texts.hello(), reply_markup=lets_make_buttons.hello_button())
-    else:
-        bot.send_message(message.from_user.id, lets_make_texts.hello_with_mailing(), reply_markup=lets_make_buttons.hello_button_with_mailing())
+    bot.send_message(message.from_user.id, lets_make_texts.hello(), reply_markup=lets_make_buttons.hello_button())
 
 @bot.callback_query_handler(func=lambda call: call.data == "list_buildings")
 def list_of_corpuses(call):

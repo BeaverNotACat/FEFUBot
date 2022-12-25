@@ -6,7 +6,6 @@ class Texts:
         self.check_obj = Checking_funcs()
         self.my_keys = ["time", "hum", "co2", "temp", "noise"]
         self.subscribing_text = '''Вы подписались'''
-        self.hello_text_with_mailing = '''Давайте знакомиться, я - "мальчик, который кричал волки"\n Вы можете подписаться на наши уведомления'''
         self.hello_text = '''Давайте знакомиться, я - "мальчик, который кричал волки"'''
         self.choose_corp_text = '''Выберите корпус'''
         self.choose_cabinet_text = '''Вы выбрали корпус {}\nВыберите аудиторию'''
@@ -17,8 +16,6 @@ class Texts:
         температура - {temp} °С {temp_check}
         шум - {noise} дБ {noise_check}'''
 
-    def hello_with_mailing(self):
-        return self.hello_text_with_mailing
     
     def hello(self):
         return self.hello_text
