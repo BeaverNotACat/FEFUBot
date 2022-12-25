@@ -128,4 +128,4 @@ dmypy.json
 .pyre/
 
 # personal data
-credential.txt
+settings.yml
