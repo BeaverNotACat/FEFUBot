@@ -24,5 +24,10 @@ def get_info(call):
     bot.edit_message_text(lets_make_texts.cabinet_info(call.data[3:], api.cabinet_info(call.data[3:])), call.from_user.id, call.message.id, reply_markup=lets_make_buttons.back())
 
 @bot.message_handler(content_types=["text"])
-def list_of_corpuses(call):
-    bot.edit_message_text(lets_make_texts.buildings(), call.from_user.id, call.message.id, reply_markup=lets_make_buttons.list_buildings(api.all_buildings()))
+def list_of_corpuses(message):
+    req = message.text
+    if (len(message.text) <= 5) and ("A" <= req.upper() <= "Z") and (req[1:].isdecimal()):
+        req = req[0].upper() + req[1:]
+        bot.send_message(message.from_user.id, lets_make_texts.cabinet_info(req, api.cabinet_info(req)), reply_markup=lets_make_buttons.back())
+
+

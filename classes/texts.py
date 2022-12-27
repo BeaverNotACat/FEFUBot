@@ -35,7 +35,7 @@ class Texts:
 
     def cabinet_info(self, name_cabinet, dict_inf):
         my_dict = dict([(key, dict_inf.get(key)) for key in self.my_keys])
-        my_dict["co2_1"] = round(my_dict.get("co2", 0) / 10000, 2)
+        my_dict["co2_1"] = (round(my_dict.get("co2") / 10000, 2) if my_dict.get("co2", 0) else 0)
         my_dict["name_cabinet"] = name_cabinet
         my_dict["hum_check"] = self.check_obj.hum(my_dict["hum"])
         my_dict["co2_check"] = self.check_obj.co2(my_dict["co2"])

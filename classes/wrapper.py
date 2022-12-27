@@ -42,7 +42,11 @@ class FefuMetaDB:
 
 
     def __get_devises_list(self, object_name):
-        return self.request_objects_list()[object_name]['devices']
+        try:
+            return self.request_objects_list()[object_name]['devices']
+        except:
+            return []
+
 
     @staticmethod
     def __validate_json(json: dict) -> dict:
