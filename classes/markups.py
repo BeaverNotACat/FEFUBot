@@ -17,6 +17,9 @@ class Markups:
     def list_buildings(self, list_of_buildings):
         return self.__make_correct_list(list_of_buildings, "corp")
 
+    def list_levels(self, list_of_levels):
+        return self.__make_correct_list(list_of_levels, "level")
+
     def list_cabinets(self, list_of_cabinets):
         return self.__make_correct_list(list_of_cabinets, "cab")
     

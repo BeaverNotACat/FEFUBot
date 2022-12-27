@@ -8,7 +8,8 @@ class Texts:
         self.subscribing_text = '''Вы подписались'''
         self.hello_text = '''Давайте знакомиться, я - "мальчик, который кричал волки"'''
         self.choose_corp_text = '''Выберите корпус'''
-        self.choose_cabinet_text = '''Вы выбрали корпус {}\nВыберите аудиторию'''
+        self.choose_level_text = '''Вы выбрали корпус {}\nВыберите уровень'''
+        self.choose_cabinet_text = '''Вы выбрали уровень {}\nВыберите аудиторию'''
         self.cabinet_info_text = '''Информация по кабинету {name_cabinet}
         time - {time}
         влажность - {hum} % {hum_check}
@@ -26,8 +27,11 @@ class Texts:
     def buildings(self):
         return self.choose_corp_text
 
-    def cabinets(self, corp):
-        return self.choose_cabinet_text.format(corp)
+    def levels(self, corp):
+        return self.choose_level_text.format(corp)
+
+    def cabinets(self, level):
+        return self.choose_cabinet_text.format(level)
 
     def cabinet_info(self, name_cabinet, dict_inf):
         my_dict = dict([(key, dict_inf.get(key)) for key in self.my_keys])
@@ -53,19 +57,4 @@ class Texts:
     'type': 1
 }'''
 
-# info_to_user = '''Датчики аудитории
-# time - {time}
-# влажность - {hum} % (в пределах нормы)
-# углекислый газ - {co2} ppm ({co2_1} %) (в пределах нормы)
-# температура - {temp} °С (в пределах нормы)
-# шум - {noise} дБ (в пределах нормы)'''
-
-
-# my_keys = ["time", "hum", "co2", "temp", "noise"]
-
-# def making_message(dict_inf):
-#     my_dict = dict([(key, dict_inf.get(key)) for key in my_keys])
-#     my_dict["co2_1"] = round(my_dict.get("co2", 0) / 10000, 2)
-
-#     return info_to_user.format(**my_dict)
 

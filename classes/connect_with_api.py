@@ -13,9 +13,13 @@ class APIInterface:
                 res.append(name)
         return sorted(res, key=lambda x: x[-1])
 
-    def cabinet_of_this_building(self, corp):
+    def levels_of_this_building(self, corp):
         names = list( self.connect_with_fefu.request_objects_list()[corp]["children_all_levels"])
-        return sorted([a for a in names if (a[0] == corp[-1])], key=lambda x: int(x[1:]))
+        return sorted(set(a[:2] for a in names if (a[0] == corp[-1])), key=lambda x: int(x[1:]))
+
+    def cabinets_of_this_level(self, level):
+        names = list( self.connect_with_fefu.request_objects_list()["Корпус " + level[0]]["children_all_levels"])
+        return sorted([a for a in names if (a[:2] == level)], key=lambda x: int(x[1:]))
     
     def cabinet_info(self, cab):
         return  self.connect_with_fefu.get_devices_readings(cab)

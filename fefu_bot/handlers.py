@@ -10,8 +10,12 @@ def list_of_corpuses(call):
     bot.edit_message_text(lets_make_texts.buildings(), call.from_user.id, call.message.id, reply_markup=lets_make_buttons.list_buildings(api.all_buildings()))
 
 @bot.callback_query_handler(func=lambda call: call.data[:4] == "corp")
+def list_of_levels(call):
+    bot.edit_message_text(lets_make_texts.levels(call.data[4:]), call.from_user.id, call.message.id, reply_markup=lets_make_buttons.list_levels(api.levels_of_this_building(call.data[4:])))
+
+@bot.callback_query_handler(func=lambda call: call.data[:5] == "level")
 def list_of_cabinets(call):
-    bot.edit_message_text(lets_make_texts.cabinets(call.data[4:]), call.from_user.id, call.message.id, reply_markup=lets_make_buttons.list_cabinets(api.cabinet_of_this_building(call.data[4:])))
+    bot.edit_message_text(lets_make_texts.cabinets(call.data[5:]), call.from_user.id, call.message.id, reply_markup=lets_make_buttons.list_cabinets(api.cabinets_of_this_level(call.data[5:])))
     # bot.delete_message(call.from_user.id, call.message.id)
     # bot.send_message(call.from_user.id, what_cabinet_you_want, reply_markup=arr_of_cabinets(corp))
 
