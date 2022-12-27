@@ -23,6 +23,6 @@ def list_of_cabinets(call):
 def get_info(call):
     bot.edit_message_text(lets_make_texts.cabinet_info(call.data[3:], api.cabinet_info(call.data[3:])), call.from_user.id, call.message.id, reply_markup=lets_make_buttons.back())
 
-@bot.callback_query_handler(func=lambda call: call.data == "subscription")
-def subscription(call):
-    bot.send_message(call.from_user.id, lets_make_texts.subscribing(), reply_markup=lets_make_buttons.hello_button())
+@bot.message_handler(content_types=["text"])
+def list_of_corpuses(call):
+    bot.edit_message_text(lets_make_texts.buildings(), call.from_user.id, call.message.id, reply_markup=lets_make_buttons.list_buildings(api.all_buildings()))
