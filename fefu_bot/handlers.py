@@ -16,8 +16,6 @@ def list_of_levels(call):
 @bot.callback_query_handler(func=lambda call: call.data[:5] == "level")
 def list_of_cabinets(call):
     bot.edit_message_text(lets_make_texts.cabinets(call.data[5:]), call.from_user.id, call.message.id, reply_markup=lets_make_buttons.list_cabinets(api.cabinets_of_this_level(call.data[5:])))
-    # bot.delete_message(call.from_user.id, call.message.id)
-    # bot.send_message(call.from_user.id, what_cabinet_you_want, reply_markup=arr_of_cabinets(corp))
 
 @bot.callback_query_handler(func=lambda call: call.data[:3] == "cab")
 def get_info(call):
