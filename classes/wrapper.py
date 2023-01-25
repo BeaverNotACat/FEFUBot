@@ -1,8 +1,5 @@
 import requests
 
-# from classes.config import ALL_OBJECTS_URL, DEVICE_BY_ID_URL
-
-
 class FefuMetaDB:
     """Representation of the FEFU MetaDB for Smast Campus """
 
