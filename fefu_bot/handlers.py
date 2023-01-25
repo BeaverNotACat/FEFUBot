@@ -1,4 +1,4 @@
-from fefu_bot import bot, lets_make_buttons, lets_make_texts, api, mailing
+from fefu_bot import bot, lets_make_buttons, lets_make_texts, api
 
 
 @bot.message_handler(commands=["start"])
